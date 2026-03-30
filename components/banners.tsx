@@ -12,7 +12,7 @@ export function ConsultingBanner() {
     >
       <p className="text-sm text-text-muted">Consultoría personalizada</p>
       <p className="text-text-primary font-medium">
-        Reserva una sesión 1:1 — 90€/sesión
+        Reserva una sesión 1:1 — 30€/sesión
       </p>
     </a>
   )
@@ -37,7 +37,7 @@ export function NewsletterBanner() {
 export function RepoBanner() {
   return (
     <a
-      href="https://github.com/polmarza/fabricjs-concriterio-tools"
+      href="https://github.com/HombreFeliz/fabricjs-concriterio-tools"
       target="_blank"
       rel="noopener noreferrer"
       className="block p-4 rounded-xl bg-surface border border-border hover:border-primary transition-colors"
