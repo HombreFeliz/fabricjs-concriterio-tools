@@ -12,7 +12,7 @@ export function ConsultingBanner() {
     >
       <p className="text-sm text-text-muted">Consultoría personalizada</p>
       <p className="text-text-primary font-medium">
-        Reserva una sesión 1:1 — 90€/sesión
+        Reserva una sesión 1:1 — 30€/sesión
       </p>
     </a>
   )
