@@ -93,7 +93,7 @@ export default function Home() {
           <button
             onClick={handleDownload}
             disabled={!canvas}
-            className="px-4 py-2 rounded-lg bg-surface border border-border text-text-primary text-sm font-medium hover:border-primary transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+            className="px-4 py-2 rounded-lg bg-white text-black text-sm font-medium hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
           >
             Descargar PNG
           </button>
