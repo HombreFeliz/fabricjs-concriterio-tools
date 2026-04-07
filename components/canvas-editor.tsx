@@ -30,7 +30,7 @@ export default function CanvasEditor({
     await loadBackgroundImage(canvas, fabric, "/builders-anonimos.png")
 
     // Add default example text in the speech bubble area
-    const exampleText = new fabric.IText("Me llamo dev y llevo\n3 side projects sin terminar.", {
+    const exampleText = new fabric.IText("Hola, soy Pol y llevo\n4 horas sin deployear", {
       left: canvas.width! * 0.37,
       top: canvas.height! * 0.08,
       fontSize: Math.round(canvas.width! * 0.032),
