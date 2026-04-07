@@ -31,13 +31,13 @@ export default function CanvasEditor({
 
     // Add default example text in the speech bubble area
     const exampleText = new fabric.IText("Hola, soy Pol y llevo\n4 horas sin deployear", {
-      left: canvas.width! * 0.37,
-      top: canvas.height! * 0.08,
-      fontSize: Math.round(canvas.width! * 0.032),
-      fontFamily: "Permanent Marker",
+      left: canvas.width! * 0.34,
+      top: canvas.height! * 0.06,
+      fontSize: Math.round(canvas.width! * 0.028),
+      fontFamily: "Inter",
       fill: "#111111",
       textAlign: "center",
-      lineHeight: 1.3,
+      lineHeight: 1.4,
     })
     canvas.add(exampleText)
     canvas.renderAll()
