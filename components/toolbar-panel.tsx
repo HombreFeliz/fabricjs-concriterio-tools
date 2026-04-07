@@ -114,7 +114,7 @@ export default function ToolbarPanel({ canvas, selectedText }: ToolbarPanelProps
 
           {/* Font color */}
           <div className="flex flex-col gap-1.5">
-            <label className="text-xs text-text-muted">Color</label>
+            <label className="text-xs text-text-muted">Color de texto</label>
             <input
               type="color"
               value={fontColor}
@@ -122,7 +122,7 @@ export default function ToolbarPanel({ canvas, selectedText }: ToolbarPanelProps
                 setFontColor(e.target.value)
                 updateText({ fill: e.target.value })
               }}
-              className="w-12 h-8 rounded border border-border cursor-pointer bg-transparent"
+              className="w-12 h-8 rounded border-2 border-white cursor-pointer bg-transparent"
             />
           </div>
 
