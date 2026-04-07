@@ -29,6 +29,19 @@ export default function CanvasEditor({
     // Load default background image
     await loadBackgroundImage(canvas, fabric, "/builders-anonimos.png")
 
+    // Add default example text in the speech bubble area
+    const exampleText = new fabric.IText("Me llamo dev y llevo\n3 side projects sin terminar.", {
+      left: canvas.width! * 0.37,
+      top: canvas.height! * 0.08,
+      fontSize: Math.round(canvas.width! * 0.032),
+      fontFamily: "Permanent Marker",
+      fill: "#111111",
+      textAlign: "center",
+      lineHeight: 1.3,
+    })
+    canvas.add(exampleText)
+    canvas.renderAll()
+
     // Selection events
     canvas.on("selection:created", (e) => {
       const target = e.selected?.[0]
@@ -48,7 +61,6 @@ export default function CanvasEditor({
       onSelectionChange(null)
     })
 
-    // Update toolbar when text is edited
     canvas.on("object:modified", (e) => {
       const target = e.target
       if (target && target.type === "i-text") {
@@ -86,7 +98,6 @@ async function loadBackgroundImage(
     canvas.backgroundImage = img
     canvas.renderAll()
   } catch {
-    // If default image not found, just set a reasonable canvas size
     canvas.setDimensions({ width: 800, height: 600 })
   }
 }

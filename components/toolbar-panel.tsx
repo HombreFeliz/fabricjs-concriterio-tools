@@ -50,69 +50,18 @@ export default function ToolbarPanel({ canvas, selectedText }: ToolbarPanelProps
     canvas.renderAll()
   }, [canvas])
 
-  const handleUploadImage = useCallback(async () => {
-    if (!canvas) return
-    const input = document.createElement("input")
-    input.type = "file"
-    input.accept = "image/*"
-    input.onchange = async (e) => {
-      const file = (e.target as HTMLInputElement).files?.[0]
-      if (!file) return
-      const url = URL.createObjectURL(file)
-      const fabric = await import("fabric")
-      const img = await fabric.FabricImage.fromURL(url)
-
-      const maxWidth = Math.min(800, window.innerWidth - 32)
-      const ratio = img.width! / img.height!
-      const width = maxWidth
-      const height = maxWidth / ratio
-
-      canvas.setDimensions({ width, height })
-      img.scaleToWidth(width)
-      img.scaleToHeight(height)
-
-      canvas.backgroundImage = img
-      canvas.renderAll()
-      URL.revokeObjectURL(url)
-    }
-    input.click()
-  }, [canvas])
-
-  const handleDownload = useCallback(() => {
-    if (!canvas) return
-    const dataURL = canvas.toDataURL({ format: "png" } as never)
-    const link = document.createElement("a")
-    link.href = dataURL
-    link.download = "builders-meme.png"
-    link.click()
-  }, [canvas])
-
   return (
     <div className="flex flex-col gap-5 p-5 bg-surface rounded-xl border border-border">
-      {/* Action buttons */}
-      <div className="flex flex-wrap gap-3">
-        <button
-          onClick={handleUploadImage}
-          className="px-4 py-2 rounded-lg bg-surface border border-border text-text-primary text-sm font-medium hover:border-primary transition-colors"
-        >
-          Subir imagen
-        </button>
-        <button
-          onClick={handleAddText}
-          className="px-4 py-2 rounded-lg bg-primary text-white text-sm font-medium hover:opacity-90 transition-opacity"
-        >
-          + Añadir texto
-        </button>
-        <button
-          onClick={handleDownload}
-          className="px-4 py-2 rounded-lg bg-surface border border-border text-text-primary text-sm font-medium hover:border-primary transition-colors"
-        >
-          Descargar PNG
-        </button>
-      </div>
+      {/* Add text button */}
+      <button
+        onClick={handleAddText}
+        className="w-full px-4 py-2.5 rounded-lg bg-primary text-white text-sm font-medium hover:opacity-90 transition-opacity"
+      >
+        + Añadir texto
+      </button>
 
       {/* Text editing panel — only visible when a text object is selected */}
-      {selectedText && (
+      {selectedText ? (
         <div className="flex flex-col gap-4">
           <h3
             className="text-sm font-semibold text-text-muted uppercase tracking-wider"
@@ -209,11 +158,9 @@ export default function ToolbarPanel({ canvas, selectedText }: ToolbarPanelProps
             </button>
           </div>
         </div>
-      )}
-
-      {!selectedText && (
+      ) : (
         <p className="text-sm text-text-muted">
-          Selecciona un texto en el canvas para editarlo.
+          Haz clic en un texto del canvas para editarlo, o añade uno nuevo.
         </p>
       )}
     </div>

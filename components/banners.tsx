@@ -52,7 +52,7 @@ export function RepoBanner() {
 
 export function StackSection() {
   const stack = [
-    { name: "Next.js 14", desc: "App Router" },
+    { name: "Next.js 16.2", desc: "App Router" },
     { name: "Tailwind CSS", desc: "Utility-first CSS" },
     { name: "Fabric.js v6", desc: "Canvas interactivo" },
     { name: "Google Fonts", desc: "10 tipografías" },
